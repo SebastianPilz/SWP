@@ -7,49 +7,41 @@ public class SelectionSort {
 		for (int i = 1; i <= a; i++) {
 			random.add((int) (Math.random() * 100) + 1);
 		}
+
 		return random;
 	}
 
-	public static void main(String[] args) {
-
+	public static ArrayList<Integer> selectionSort(ArrayList<Integer> a) {
+		ArrayList<Integer> b = new ArrayList<Integer>();
 		int s = 11111;
 		int st = 0;
 
-		ArrayList<Integer> zahlen = new ArrayList<Integer>();
-		ArrayList<Integer> sortiert = new ArrayList<Integer>();
-
-		zahlen.add(8);
-		zahlen.add(4);
-		zahlen.add(3);
-		zahlen.add(7);
-		zahlen.add(12);
-		zahlen.add(17);
-		zahlen.add(2);
-
-		ArrayList<Integer> zahl = getRandomList(10);
-
-		long starttime = System.currentTimeMillis();
-
-		while (zahl.size() != 0) {
-			for (int i = 0; i <= zahl.size() - 1; i++) {
-				int z = zahl.get(i);
+		while (a.size() != 0) {
+			for (int i = 0; i <= a.size() - 1; i++) {
+				int z = a.get(i);
 				if (z < s) {
 					s = z;
 					st = i;
 				}
-				if (i == zahl.size() - 1) {
-					sortiert.add(s);
-					zahl.remove(st);
+				if (i == a.size() - 1) {
+					b.add(s);
+					a.remove(st);
 					st = 0;
 					s = 11111;
 				}
 			}
 		}
 
-		for (int i = 0; i <= sortiert.size() - 1; i++) {
-			int a = sortiert.get(i);
-			System.out.println(a);
-		}
+		return b;
+	}
+
+	public static void main(String[] args) {
+		int a = 10;
+		ArrayList<Integer> zahl = getRandomList(a);
+
+		long starttime = System.currentTimeMillis();
+
+		System.out.println(selectionSort(zahl));
 
 		long endtime = System.currentTimeMillis();
 		long time = endtime - starttime;
