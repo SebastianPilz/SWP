@@ -42,7 +42,7 @@ public class QuickSort {
 		return z1sorted;
 	}
 
-	public static ArrayList<Integer> qSort(ArrayList<Integer> a, int b, int c) {
+	public static ArrayList<Integer> quickSort2(ArrayList<Integer> a, int b, int c) {
 		// Ohne ArrayLists zu erstellen, alles in einer ArrayList lösen
 		if (b == c) {
 			return a;
@@ -55,26 +55,25 @@ public class QuickSort {
 			int e = a.get(i);
 
 			if (e < d) {
-				a.remove(e);
-				a.remove(d);
-				a.add(d, i);
-				a.add(e, b);
+				a.set(i, d);
+				a.set(s, e);
+				
 				s = i;
 			}
 		}
-
-		return qSort(a, b, s);
+		
+		return quickSort2(a, b, s);
 	}
 
 	public static void main(String[] args) {
-		int a = 10;
+		int a = 5;
 		ArrayList<Integer> zahlen = getRandomList(a);
 		System.out.print("Originale Liste : ");
 		System.out.println(zahlen);
-		System.out.print("Erste Version : ");
+		System.out.print("Erste Version: ");
 		System.out.println(quickSort(zahlen));
-		System.out.print("Zweite Version : ");
-		System.out.println(qSort(zahlen, 0, zahlen.size() - 1));
+		System.out.print("Zweite Version: ");
+		System.out.println(quickSort2(zahlen, 0, zahlen.size() - 1));
 
 	}
 }
