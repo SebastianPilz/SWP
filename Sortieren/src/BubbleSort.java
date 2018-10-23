@@ -12,7 +12,7 @@ public class BubbleSort {
 	}
 
 	public static ArrayList<Integer> bubbleSort(ArrayList<Integer> a) {
-		for (int j = 0; j < (a.size() * 2); j++) {
+		for (int j = 0; j < (a.size() * 3); j++) {
 			for (int i = 0; i < a.size() - 1; i++) {
 				if (a.get(i) > a.get(i + 1)) {
 					int z = a.get(i);
@@ -26,7 +26,7 @@ public class BubbleSort {
 	}
 
 	public static void main(String[] args) {
-		int a = 10;
+		int a = 20;
 		ArrayList<Integer> zahlen = getRandomList(a);
 
 		System.out.println(bubbleSort(zahlen));
