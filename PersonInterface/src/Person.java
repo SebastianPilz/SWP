@@ -1,5 +1,5 @@
-
-public class Person {
+// 25.10.2018
+public class Person implements IBiggerThan<Person> {
 
 	private String firstName;
 	private String lastName;
@@ -48,15 +48,15 @@ public class Person {
 		namep1.toLowerCase();
 		namep2.toLowerCase();
 
-		int shortest = 0; // Länge des kürzeren Namens
+		int shortest = 0;
 
-		if (namep1.length() <= namep2.length()) { // herausfinden wie lang der kürzeste Name ist
+		if (namep1.length() <= namep2.length()) {
 			shortest = namep1.length();
 		} else {
 			shortest = namep2.length();
 		}
 
-		for (int i = 0; i < shortest; i++) { // Vergleichen der Namen
+		for (int i = 0; i < shortest; i++) {
 			char charp1 = namep1.charAt(i);
 			char charp2 = namep2.charAt(i);
 
@@ -66,41 +66,7 @@ public class Person {
 				return false;
 			}
 		}
-		// Wenn beide Namen gleich sind, schauen ob einer länger als der andere ist:
-		if (namep1.length() < namep2.length()) {
-			return false;
-		} else {
-			return true;
-		}
-	}
-
-	public boolean isSmallerThan(Person p) {
-
-		String namep1 = this.lastName;
-		String namep2 = p.lastName;
-
-		namep1.toLowerCase();
-		namep2.toLowerCase();
-
-		int shortest = 0; // Länge des kürzeren Namens
-
-		if (namep1.length() <= namep2.length()) { // herausfinden wie lang der kürzeste Name ist
-			shortest = namep1.length();
-		} else {
-			shortest = namep2.length();
-		}
-
-		for (int i = 0; i < shortest; i++) { // Vergleichen der Namen
-			char charp1 = namep1.charAt(i);
-			char charp2 = namep2.charAt(i);
-
-			if (charp1 < charp2) {
-				return true;
-			} else if (charp1 > charp2) {
-				return false;
-			}
-		}
-		// Wenn beide Namen gleich sind, schauen ob einer länger als der andere ist:
+		
 		if (namep1.length() < namep2.length()) {
 			return false;
 		} else {
