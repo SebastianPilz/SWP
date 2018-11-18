@@ -1,9 +1,9 @@
-// 6.11.2018
-public class LinkedList {
+// 13.11.2018
+public class LinkedList<T> {
 
 	private Node head = null;
 
-	public void add(int value) {
+	public void add(T value) {
 		Node n = new Node(value);
 
 		// if List is empty point to first element
@@ -18,7 +18,7 @@ public class LinkedList {
 		}
 	}
 
-	public int getValue(int index) {
+	public T getValue(int index) {
 		Node tmp = head;
 
 		for (int i = 0; i < index; i++) {
@@ -29,7 +29,7 @@ public class LinkedList {
 			}
 		}
 
-		return tmp.getValue();
+		return (T) tmp.getValue();
 	}
 
 	public int getSize() {
@@ -46,7 +46,7 @@ public class LinkedList {
 
 	public void remove(int index) {
 		Node tmp = head;
-		
+
 		if (index == 0) {
 			head = tmp.getNext();
 		} else {
