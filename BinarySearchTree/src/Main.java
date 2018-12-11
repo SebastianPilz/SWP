@@ -25,10 +25,14 @@ public class Main {
 		b.add(25);
 		b.add(32);
 		b.add(35);
+		/*
+		b.add(10);
 		
+		b.add(4);
+		b.add(15);
 		
-		
+		*/
 		b.remove(15);
-		b.search(2);
+		b.search(15);
 	}
 }
