@@ -1,5 +1,5 @@
 // 4.12.2018
-public class Node<T> implements ICompare<Node> {
+public class Node<T> implements ICompare<Node<T>> {
 	private T value;
 	private Node<T> smaller;
 	private Node<T> bigger;
@@ -51,19 +51,19 @@ public class Node<T> implements ICompare<Node> {
 		this.big = big + 1;
 	}
 
-	public boolean isBiggerThan(Node n) {
+	public boolean isBiggerThan(Node<T> n) {
 		return this.isBiggerThan(n);
 	}
 
-	public boolean isSmallerThan(Node n) {
+	public boolean isSmallerThan(Node<T> n) {
 		return this.isSmallerThan(n);
 	}
 
-	public boolean isBiggerEqThan(Node n) {
+	public boolean isBiggerEqThan(Node<T> n) {
 		return this.isBiggerEqThan(n);
 	}
 
-	public boolean isSmallerEqThan(Node n) {
+	public boolean isSmallerEqThan(Node<T> n) {
 		return this.isSmallerEqThan(n);
 	}
 }
