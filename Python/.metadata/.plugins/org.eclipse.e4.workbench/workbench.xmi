@@ -11,6 +11,7 @@
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;workingSets/>"/>
     <persistedState key="aggregateWorkingSetId" value="Aggregate for window 1546953681988"/>
     <tags>topLevel</tags>
+    <tags>shellMaximized</tags>
     <children xsi:type="basic:PartSashContainer" xmi:id="_SHdsshNIEemEKv7fLtnahQ" selectedElement="_SHeTwBNIEemEKv7fLtnahQ" horizontal="true">
       <children xsi:type="advanced:PerspectiveStack" xmi:id="_SHeTwBNIEemEKv7fLtnahQ" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_SRTlMBNIEemEKv7fLtnahQ">
         <children xsi:type="advanced:Perspective" xmi:id="_SRTlMBNIEemEKv7fLtnahQ" elementId="org.python.pydev.ui.PythonPerspective" selectedElement="_SRTlMRNIEemEKv7fLtnahQ" label="PyDev" iconURI="platform:/plugin/org.python.pydev.shared_ui/icons/python_16x16.png">
@@ -125,7 +126,7 @@
         <tags>EditorStack</tags>
         <tags>active</tags>
         <children xsi:type="basic:Part" xmi:id="_yeGc0BNIEemaMM38Mat3cA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="InsertionSort" iconURI="platform:/plugin/org.python.pydev.shared_ui/icons/python_file.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.python.pydev.editor.PythonEditor&quot; name=&quot;InsertionSort.py&quot; partName=&quot;InsertionSort&quot; title=&quot;InsertionSort&quot; tooltip=&quot;InsertionSort/InsertionSort.py&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/InsertionSort/InsertionSort.py&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;249&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xA;&lt;editor id=&quot;org.python.pydev.editor.PythonEditor&quot; name=&quot;InsertionSort.py&quot; partName=&quot;InsertionSort&quot; title=&quot;InsertionSort&quot; tooltip=&quot;InsertionSort/InsertionSort.py&quot;>&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/InsertionSort/InsertionSort.py&quot;/>&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;248&quot; selectionTopPixel=&quot;0&quot;/>&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.python.pydev.editor.PythonEditor</tags>
           <tags>removeOnHide</tags>
@@ -189,7 +190,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_SLROoBNIEemEKv7fLtnahQ" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VXPbYBNIEemaMM38Mat3cA" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_RBpUIRNIEemEKv7fLtnahQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tXj9UBSnEemOa8uwz-NBqw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_RBpUIRNIEemEKv7fLtnahQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_SLROoRNIEemEKv7fLtnahQ" elementId="group.edit" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -217,7 +218,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_SLScwBNIEemEKv7fLtnahQ" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_VXTs0BNIEemaMM38Mat3cA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_RBm3_hNIEemEKv7fLtnahQ"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_tXo10BSnEemOa8uwz-NBqw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_RBm3_hNIEemEKv7fLtnahQ"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_SLScwRNIEemEKv7fLtnahQ" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -414,7 +415,7 @@
     </bindings>
     <bindings xmi:id="_RCqn0xNIEemEKv7fLtnahQ" keySequence="ALT+COMMAND+G" command="_RBlCtBNIEemEKv7fLtnahQ"/>
     <bindings xmi:id="_RCqn1RNIEemEKv7fLtnahQ" keySequence="COMMAND+W" command="_RBrwfBNIEemEKv7fLtnahQ"/>
-    <bindings xmi:id="_VCCAYBNIEemaMM38Mat3cA" keySequence="COMMAND+CTRL+F" command="_RERxYRNIEemEKv7fLtnahQ"/>
+    <bindings xmi:id="_tAlAsBSnEemOa8uwz-NBqw" keySequence="COMMAND+CTRL+F" command="_RERxYRNIEemEKv7fLtnahQ"/>
   </bindingTables>
   <bindingTables xmi:id="_RCYT8BNIEemEKv7fLtnahQ" elementId="org.eclipse.ui.textEditorScope" bindingContext="_RByeERNIEemEKv7fLtnahQ">
     <bindings xmi:id="_RCYT8RNIEemEKv7fLtnahQ" keySequence="COMMAND+END" command="_RBmQ2BNIEemEKv7fLtnahQ"/>
@@ -614,7 +615,7 @@
     <bindings xmi:id="_RCmWYhNIEemEKv7fLtnahQ" keySequence="COMMAND+SHIFT+T" command="_RBnfDRNIEemEKv7fLtnahQ"/>
   </bindingTables>
   <bindingTables xmi:id="_RES_gRNIEemEKv7fLtnahQ" contributorURI="platform:/fragment/org.eclipse.e4.ui.workbench.renderers.swt.cocoa" bindingContext="_RAhSyxNIEemEKv7fLtnahQ">
-    <bindings xmi:id="_VCDOgBNIEemaMM38Mat3cA" keySequence="M1+W" command="_RESYdBNIEemEKv7fLtnahQ"/>
+    <bindings xmi:id="_tAlnwBSnEemOa8uwz-NBqw" keySequence="M1+W" command="_RESYdBNIEemEKv7fLtnahQ"/>
   </bindingTables>
   <bindingTables xmi:id="_SQ9m8RNIEemEKv7fLtnahQ" bindingContext="_SQ9m8BNIEemEKv7fLtnahQ"/>
   <bindingTables xmi:id="_SQ9m8xNIEemEKv7fLtnahQ" bindingContext="_SQ9m8hNIEemEKv7fLtnahQ"/>
@@ -1653,7 +1654,7 @@
   <addons xmi:id="_RAh50RNIEemEKv7fLtnahQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
   <addons xmi:id="_RAh50hNIEemEKv7fLtnahQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_RAyYgBNIEemEKv7fLtnahQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_VBq0ARNIEemaMM38Mat3cA" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_tAQ3oRSnEemOa8uwz-NBqw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
   <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
   <addons xmi:id="_REPVIBNIEemEKv7fLtnahQ" elementId="org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.renderers.swt/org.eclipse.e4.ui.workbench.renderers.swt.cocoa.CocoaUIHandler"/>
   <categories xmi:id="_RBaDkBNIEemEKv7fLtnahQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>

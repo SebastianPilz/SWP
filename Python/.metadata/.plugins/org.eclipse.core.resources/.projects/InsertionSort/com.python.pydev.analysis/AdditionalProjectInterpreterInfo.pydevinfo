@@ -1,14 +1,17 @@
 -- VERSION_5
 -- START DISKCACHE_2
 /Users/SebastianPilz/Documents/Schule/201819/SWP-OP/Python/.metadata/.plugins/org.eclipse.core.resources/.projects/InsertionSort/com.python.pydev.analysis/v2_indexcache
+InsertionSort|1546955934000000000|/Users/SebastianPilz/Documents/Schule/201819/SWP-OP/Python/InsertionSort/InsertionSort.py
 -- END DISKCACHE
 -- START DICTIONARY
-0
+2
+1=/Users/SebastianPilz/Documents/Schule/201819/SWP-OP/Python/InsertionSort/InsertionSort.py
+2=InsertionSort
 -- END DICTIONARY
 -- START TREE 1
 2
-A|0|
-sel|0|
+A|1|A!1^16#1*19@
+sel|1|SelectionSort!1^7#5*18@
 -- END TREE
 -- START TREE 2
 0
