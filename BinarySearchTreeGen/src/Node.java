@@ -50,6 +50,14 @@ public class Node<T> implements ICompare<Node<T>> {
 	public void setBig() {
 		this.big = big + 1;
 	}
+	
+	public void minBig() {
+		this.big = big - 1;
+	}
+	
+	public void minSmall() {
+		this.small = small - 1;
+	}
 
 	public boolean isBiggerThan(Node<T> n) {
 		return this.isBiggerThan(n);

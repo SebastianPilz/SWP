@@ -1,0 +1,19 @@
+'''
+Created on 8 Jan 2019
+
+@author: SebastianPilz
+'''
+
+def SelectionSort(A):
+    i = 2
+    for i in range(len(A)):
+        h = A[i]
+        j = i - 1
+        while A[j] > h and j > 0:
+            A[j + 1] = A[j]
+            j = j - 1
+        A[j + 1] = h
+
+A = [4, 2, 3, 1]
+SelectionSort(A)
+print(A)

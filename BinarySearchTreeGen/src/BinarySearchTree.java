@@ -1,5 +1,5 @@
 // 4.12.2018
-public class BinarySearchTree<T> {
+public class BinarySearchTree<T extends ICompare> {
 	private Node<T> head;
 
 	public Node<T> search(T value) {
@@ -130,7 +130,36 @@ public class BinarySearchTree<T> {
 		System.out.println("neue runde");
 
 		if (n.getValue() == head.getValue()) {
-			head = null;
+			Node<T> tmp = head;
+
+			if (head.getBigger() == null && head.getSmaller() == null) {
+				System.out.println("Der hat nix der Head is aloan");
+				head = null;
+			}
+
+			if (head.getBigger() != null) {
+				tmp = findSmallest(tmp.getBigger());
+				System.out.println("Der hat a poa groessere");
+				Node<T> tmp1 = tmp;
+				if (tmp.getSmaller().getBig() > 1) {
+					System.out.println("AY der hat a welche");
+					remove(tmp.getSmaller(), tmp.getSmaller(), tmp);
+				}
+				head = tmp1.getSmaller();
+
+				return null;
+			} else {
+				tmp = findBiggest(tmp.getSmaller());
+				System.out.println("Der hat a poa kleinere");
+				Node<T> tmp1 = tmp;
+				if (tmp.getBigger().getSmall() > 1) {
+					System.out.println("AY der hat a welche");
+					remove(tmp.getBigger(), tmp.getBigger(), tmp);
+				}
+				head = tmp1.getBigger();
+
+				return null;
+			}
 		}
 
 		if (n.getValue() == pos.getValue()) {
@@ -152,10 +181,10 @@ public class BinarySearchTree<T> {
 
 				return pos;
 
-			} else if (pos.getBig() == 0) {
+			} else if (pos.getBigger() == null) {
 				// Es gibt keinen groesseren Wert
 				System.out.println("Der hat koanen");
-				if (pos.getSmall() == 0) {
+				if (pos.getSmaller() == null) {
 					// Es gibt keinen kleineren Wert
 
 					if (pos.getValue().isSmallerThan(parent.getValue())) {
@@ -191,27 +220,28 @@ public class BinarySearchTree<T> {
 					System.out.println("Der hat viele kloane");
 
 					Node<T> tmp = pos;
+					if (tmp.getSmaller().getBigger() != null) {
 
-					tmp = findBiggest(tmp.getSmaller());
+						tmp = findBiggest(tmp.getSmaller());
+						// tmp ist der Wert direkt vor dem groessten, also der parent
+						System.out.printf("Da is da greaste: %d\n", tmp.getBigger().getValue());
+						// Fall wenn die Node noch weitere kleinere Werte darunter hat
+						if (tmp.getBigger().getSmall() > 1) {
+							remove(tmp.getBigger().getSmaller(), tmp.getBigger(), tmp);
+						}
+						// Loeschen der Node
+						if (pos.getValue().isSmallerThan(parent.getValue())) {
+							parent.setSmaller(tmp.getBigger());
+						}
 
-					System.out.println(tmp.getValue());
-					System.out.printf("Da is da greaste: %d\n", tmp.getBigger().getValue());
+						if (pos.getValue().isBiggerThan(parent.getValue())) {
+							parent.setBigger(tmp.getBigger());
+						}
 
-					if (tmp.getBigger().getSmall() > 1) {
-						remove(tmp.getBigger().getSmaller(), tmp.getBigger(), tmp);
+						System.out.println("Passt hobn ma");
+					} else {
+						parent.setSmaller(parent.getSmaller().getSmaller());
 					}
-
-					if (pos.getValue().isSmallerThan(parent.getValue())) {
-						parent.setSmaller(tmp.getBigger());
-					}
-
-					if (pos.getValue().isBiggerThan(parent.getValue())) {
-						parent.setBigger(tmp.getBigger());
-					}
-
-					tmp.setBigger(tmp.getBigger().getBigger());
-
-					System.out.println("Passt hobn ma");
 
 					return pos;
 				}
@@ -220,24 +250,34 @@ public class BinarySearchTree<T> {
 				System.out.println("Der hat viele");
 
 				Node<T> tmp = pos;
-				tmp = findSmallest(tmp.getBigger());
+				if (tmp.getBigger().getSmaller() != null) {
+					tmp = findSmallest(tmp.getBigger());
+					System.out.printf("Da is da kleinste: %d\n", tmp.getSmaller().getValue());
+					// tmp ist der Wert direkt vor dem kleinsten Wert, also der parent
+					// Fall wenn die Node noch weitere groessere Werte darunter hat
+					if (tmp.getSmaller().getBig() > 1) {
+						remove(tmp.getSmaller().getBigger(), tmp.getSmaller(), tmp);
+					}
+					// Loeschen der Node
+					if (pos.getValue().isSmallerThan(parent.getValue())) {
+						parent.setSmaller(tmp.getSmaller());
+					}
 
-				System.out.println(tmp.getValue());
-				System.out.printf("Da is da kleinste: %d\n", tmp.getSmaller().getValue());
+					if (pos.getValue().isBiggerThan(parent.getValue())) {
+						parent.setBigger(tmp.getSmaller());
+					}
 
-				if (tmp.getSmaller().getBig() > 1) {
-					remove(tmp.getSmaller().getBigger(), tmp.getSmaller(), tmp);
+					System.out.println("Passt hobn ma");
+				} else {
+					// Wenn es mehrere groessere Werte unter tmp gibt aber nie kleinere, also der
+					// kleinste Wert der direkt darunter ist
+
+					// Loeschen der Node
+
+					parent.setSmaller(parent.getSmaller().getBigger());
+
+					System.out.println("Passt hobn ma");
 				}
-
-				if (pos.getValue().isSmallerThan(parent.getValue())) {
-					parent.setSmaller(tmp.getSmaller());
-				}
-
-				if (pos.getValue().isBiggerThan(parent.getValue())) {
-					parent.setBigger(tmp.getSmaller());
-				}
-
-				System.out.println("Passt hobn ma");
 
 				return pos;
 			}
