@@ -1,6 +1,7 @@
 {% load static %}
 <style>
     .header {
+        font-family: verdana;
         text-align: center;
         padding: 20px;
         background-color:cornflowerblue;
@@ -8,48 +9,101 @@
         margin-bottom: 10px;
     }
 
+    body {
+        font-family: verdana;
+        background-color: aliceblue;
+    }
+
     .a1 {
-        height: 200px;
+        height: 250px;
         border-radius: 25px;
         padding: 20px;
         float: left;
         width: 20%;
-        background-color: red;
-        margin: 3px;
-    }
-
-    .a2 {
-        height: 200px;
-        border-radius: 25px;
-        padding: 20px;
-        float: left;
-        width: 20%;
-        background-color: blue;
-        margin: 3px;
-    }
-
-    .a3 {
-        height: 200px;
-        border-radius: 25px;
-        padding: 20px;
-        float: left;
-        width: 20%;
-        background-color: yellow;
+        background-color: orangered;
         margin: 3px;
     }
     
+    #liste1 {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #B0C4DE;
+        border-radius: 20px;
+    }
+
+    .zeile {
+        float: left;
+        border-right: 1px solid blue;
+    }
+
+    .zeile a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    .zeile a:hover {
+        background-color: #8FBC8F;
+    }
+
+    a:link {
+        color: pink; 
+        background-color: transparent; 
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: pink;
+        background-color: transparent;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: blue;
+        background-color: transparent;
+        text-decoration: none;
+    }
+    
 </style>
-<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
 <div class="header">
-    <h1>Ueberschrift</h1>
+    <h1>Hier sind Sachen
+    </h1>
 </div>
+
+<ul id="liste1">  
+    <li class="zeile"><a href="https://www.google.at/?client=safari&channel=ipad_bm">Google</a></li> 
+    <li class="zeile"><a href="https://www.jw.org/de/">JW.ORG</a></li>   
+    <li class="zeile"><a href="https://www.netflix.com/browse">Netflix</a></li>
+    <li class="zeile"><a href="https://www.youtube.com">Youtube</a></li>
+</ul>
 
 <div>
 {% if latest_question_list %}
     <ul>
     {% for question in latest_question_list %}
-    <li class="a1"><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <li class="a1">
+        <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+        <form action="{% url 'polls:vote' question.id %}" method="post">
+            {% csrf_token %}
+            {% for choice in question.choice_set.all %}
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+                <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
+            {% endfor %}
+            <input type="submit" value="Vote">
+            </form>
+        <p>Results:</p>
+        <ul>
+            {% for choice in question.choice_set.all %}
+                <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{{ choice.votes|pluralize }}</li>
+            {% endfor %}
+        </ul>
+    
+    </li>
     {% endfor %}
     </ul>
 {% else %}

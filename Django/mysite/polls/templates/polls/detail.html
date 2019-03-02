@@ -1,3 +1,17 @@
+<style>
+    body {
+        font-family: verdana;
+        background-color: aliceblue;
+    }
+
+    #Home {
+        border-radius: 5px;
+        background-color: orangered;
+    }
+</style>
+
+<a id="Home" href="{% url 'polls:index' %}">Home</a>
+
 <h1>{{ question.question_text }}</h1>
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
