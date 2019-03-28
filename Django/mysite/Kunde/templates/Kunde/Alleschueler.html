@@ -1,0 +1,18 @@
+<style>
+        body {
+            font-family: verdana;
+            background-color: aliceblue;
+        }
+</style>
+
+<a id="Home" href="/accounts/logout">Log out</a>
+
+<div>
+    <ul>
+    {% for Schunt in list3 %}
+        <li class="a1">
+            <a href="{% url 'Kunde:LehrerSchueler' Schunt.id %}">{{ Schunt.Schueler.user.first_name }} {{ Schunt.Schueler.user.last_name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

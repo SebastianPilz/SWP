@@ -1,0 +1,15 @@
+<style>
+        body {
+            font-family: verdana;
+            background-color: aliceblue;
+        }
+</style>
+
+<a id="Home" href="/accounts/logout">Log out</a>
+
+{% for Note in list101 %}
+        <li class="a1">
+            <p>{{Note.Unterricht.Fach.Name}}</p>
+            <p>{{Note.Note}}</p>
+        </li>
+    {% endfor %}

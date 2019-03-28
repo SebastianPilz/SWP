@@ -2,16 +2,13 @@ import datetime
 
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 class Lehrer(models.Model):
-    Vorname = models.CharField(max_length=200)
-    Nachname = models.CharField(max_length=200)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Vorname
-        return self.Nachname
-
-
+        return self.user.last_name + ", " + self.user.first_name
 
 class Fach(models.Model):
     Name = models.CharField(max_length=200)
@@ -27,49 +24,42 @@ class Klasse(models.Model):
 
 class Unterricht(models.Model):
     Lehrer = models.ForeignKey(Lehrer, on_delete=models.CASCADE)
-    KlasseID = models.ForeignKey(Klasse, on_delete=models.CASCADE)
-    FachID = models.ForeignKey(Fach, on_delete=models.CASCADE)
+    Klasse = models.ForeignKey(Klasse, on_delete=models.CASCADE)
+    Fach = models.ForeignKey(Fach, on_delete=models.CASCADE)
     
     def __str__(self):
-        return self.Lehrer.Vorname
-        return self.Lehrer.Nachname
-        return self.Klasse.Name
-        return self.Fach.Name
+        return self.Lehrer.user.last_name + ", " + self.Klasse.Name+", "+self.Fach.Name
 
 class Schueler(models.Model):
-    Name = models.CharField(max_length=200)
-    KlasseID = models.ForeignKey(Klasse, on_delete=models.CASCADE)
-    Vorname = models.CharField(max_length=200)
-    Nachname = models.CharField(max_length=200)
+    Klasse = models.ForeignKey(Klasse, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.Vorname
-        return self.Nachname
-        return self.Klasse.Name
+        return self.user.first_name + ", " + self.user.last_name + ", " + self.Klasse.Name
+
+class Schunt(models.Model):
+    Unterricht = models.ForeignKey(Unterricht, on_delete=models.CASCADE)
+    Schueler = models.ForeignKey(Schueler, on_delete=models.CASCADE)
 
 class Note(models.Model):
-    Vorname = models.CharField(max_length=200)
-    Nachname = models.CharField(max_length=200)
-    SchuelerID = models.ForeignKey(Schueler, on_delete=models.CASCADE)
-    UnterrichtID = models.ForeignKey(Unterricht, on_delete=models.CASCADE)
+    Schueler = models.ForeignKey(Schueler, on_delete=models.CASCADE)
+    Unterricht = models.ForeignKey(Unterricht, on_delete=models.CASCADE)
     Note = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.Schueler.Vorname
-        return self.schueler.Nachname
-        return self.Unterricht.Fach.Name
+        return self.Schueler.user.last_name + ", " + self.Schueler.user.first_name + ", " + self.Unterricht.Fach.Name
 
-class Pruefung(models.Model):
-    NoteID = models.ForeignKey(Note, on_delete=models.CASCADE)
+class Einzelnote(models.Model):
+    Bezeichnung = models.CharField(max_length=200)
     Note = models.IntegerField(default=0)
-    
-    def __str__(self):
-        return self.Note
 
-class Test(models.Model):
-    NoteID = models.ForeignKey(Note, on_delete=models.CASCADE)
-    Note = models.IntegerField(default=0)
-    
     def __str__(self):
-        return self.Note
+        return self.Bezeichnung
+
+class Nope(models.Model):
+    Note = models.ForeignKey(Note, on_delete=models.CASCADE)
+    Einzelnote = models.ForeignKey(Einzelnote, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.Note.Schueler.user.last_name + ", " + self.Note.Schueler.user.first_name
 

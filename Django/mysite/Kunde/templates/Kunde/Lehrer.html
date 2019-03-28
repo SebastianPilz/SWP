@@ -1,0 +1,23 @@
+<style>
+    body {
+        font-family: verdana;
+        background-color: aliceblue;
+    }
+</style>
+
+<a id="Home" href="/accounts/logout">Log out</a>
+
+<p>Servus Herr Lehrer</p>
+
+<p>{{ Unterricht.Lehrer.Vorname }}</p>
+<p>{{ Unterricht.Lehrer.Nachname }}</p>
+
+<div>
+    <ul>
+    {% for Unterricht in list2 %}
+        <li class="a1">
+            <a href="{% url 'Kunde:AlleSchueler' Unterricht.id %}">{{ Unterricht.Klasse.Name }} {{ Unterricht.Fach.Name }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>

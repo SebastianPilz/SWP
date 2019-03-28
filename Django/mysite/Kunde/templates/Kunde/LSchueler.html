@@ -1,0 +1,55 @@
+<style>
+    body {
+        font-family: verdana;
+        background-color: aliceblue;
+    }
+</style>
+
+<a id="Home" href="/accounts/logout">Log out</a>
+
+<div>
+
+    <ul>
+    {% for Nope in list4 %}
+        <li class="a1">
+            <p>Gesamtnote: {{ Nope.Note.Note }}</p>
+        </li>
+    {% endfor %}
+    {% for Nope in list4 %}
+        <li class="a1">
+            <p>Einzelnote: {{ Nope.Einzelnote }} : {{ Nope.Einzelnote.Note }}</p>
+        </li>
+    {% endfor %}
+    </ul>
+
+
+
+    <p>Gesamtnote:</p>
+
+    <form action="{% 'changeNote' %}" method="POST"
+        <select name="Note">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <button type="submit" onclick="">Senden</button>
+    </form>
+    
+    <p>Einzelnote hinzufuegen:</p>
+
+    <form action="{% 'AddENote' %}" method="POST">    
+        <input type="text" name="bezeichnung"><br>
+        <select name="Note">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <button type="submit" onclick="">Senden</button>
+    </form>
+</div>
