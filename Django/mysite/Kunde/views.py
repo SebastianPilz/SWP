@@ -90,13 +90,33 @@ class SchuelerView(generic.ListView):
                 n.append(i)
         return n
 
-def changeNote(request):
-    data = request.POST.copy()
-    note = data.get('Note')
+def changeNote(request, pk):
+    if(request.POST):
+        schunt = Schunt.objects.get(pk=pk)
+        schueler = schunt.Schueler
+
+        note = Note.objects.get(Schueler=schueler, Unterricht=schunt.Unterricht)
+        note.Note = request.POST['note']
+        note.save()
+'''
+    for i in Nope:
+        if(i.id==pk):
+            schueler=i.Note.Schueler
+            unterricht=i.Note.Unterricht
+            i.Note.Note.delete()
+            new_Note=Note(schueler, unterricht, note)
+            new_Note.save()       
+'''
 
 
-def addENote(request):
-    data = request.POST.copy()
-    string = data.get('bezeichnung')
-    note = data.get('Note')
-    Nope = Nope()
+def AddENote(request, pk):
+    if request.POST:
+        bez = request.POST['bezeichnung']
+        note_wert = request.POST['note']
+        schunt = Schunt.objects.get(pk=pk)
+        note = Note.objects.get(Schueler=schunt.Schueler, Unterricht=schunt.Unterricht)
+    
+        new_Einzelnote=Einzelnote(Bezeichnung=bez, Note=note)
+        new_Einzelnote.save()
+        new_Nope=Nope(n, Einzelnote=new_Einzelnote)
+        new_Nope.save()

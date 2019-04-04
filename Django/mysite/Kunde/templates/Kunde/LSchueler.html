@@ -17,7 +17,7 @@
     {% endfor %}
     {% for Nope in list4 %}
         <li class="a1">
-            <p>Einzelnote: {{ Nope.Einzelnote }} : {{ Nope.Einzelnote.Note }}</p>
+            <p>Einzelnote: {{ Nope.Einzelnote.Bezeichnung }} : {{ Nope.Einzelnote.Note }}</p>
         </li>
     {% endfor %}
     </ul>
@@ -26,8 +26,8 @@
 
     <p>Gesamtnote:</p>
 
-    <form action="{% 'changeNote' %}" method="POST"
-        <select name="Note">
+    <form action="{% url 'Kunde:changeNote' %}" method="POST"
+        <select name="note">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -37,12 +37,12 @@
 
         <button type="submit" onclick="">Senden</button>
     </form>
-    
+
     <p>Einzelnote hinzufuegen:</p>
 
-    <form action="{% 'AddENote' %}" method="POST">    
+    <form action="{% url 'Kunde:AddENote' Nope.Note.id%}" method="POST">    
         <input type="text" name="bezeichnung"><br>
-        <select name="Note">
+        <select name="note">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
