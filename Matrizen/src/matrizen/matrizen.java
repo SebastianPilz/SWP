@@ -29,8 +29,8 @@ public class matrizen {
 			v.set(0, 0, fir.get(0, 0) * sec.get(0, 0));
 			return v;
 		}
-
-		if (fir.getRows() == 1 && fir.getRows() == 1 && sec.getRows() != 1 && sec.getCols() != 1) {
+		
+		if (fir.getRows() == 1 && fir.getRows() == 1 && sec.getRows() >= 1 && sec.getCols() >= 1) {
 			// 1ter = Skalar, 2ter = Vektor oder Matrix
 
 			if (sec.getRows() != 1 && sec.getCols() == 1) {
@@ -66,7 +66,7 @@ public class matrizen {
 			}
 		}
 
-		if (sec.getRows() == 1 && sec.getRows() == 1 && fir.getRows() != 1 && fir.getCols() != 1) {
+		if (sec.getRows() == 1 && sec.getRows() == 1 && fir.getRows() >= 1 && fir.getCols() >= 1) {
 			// 1ter = Vektor oder Matrix, 2ter = Skalar
 
 			if (fir.getRows() != 1 && fir.getCols() == 1) {
@@ -102,7 +102,7 @@ public class matrizen {
 			}
 		}
 
-		if (fir.getRows() != 1 && fir.getRows() != 1 && sec.getRows() != 1 && sec.getCols() != 1) {
+		if (fir.getRows() >= 1 && fir.getRows() >= 1 && sec.getRows() >= 1 && sec.getCols() >= 1) {
 			// 1ter = Vektor oder Matrix, 2ter = Vektor oder Matrix
 
 			// ----------
@@ -124,7 +124,7 @@ public class matrizen {
 					// 1te = senkrechter Vektor, 2te = waagrechter Vektor
 
 					Matrix v = new Matrix(1, 1);
-					int w = 0;
+					float w = 0;
 
 					for (int i = 0; i < sec.getCols(); i++) {
 
@@ -141,7 +141,7 @@ public class matrizen {
 					// 1te = senkrechter Vektor, 2te = Matrix
 
 					Matrix v = new Matrix(fir.getRows(), 1);
-					int w = 0;
+					float w = 0;
 					for (int i = 0; i < sec.getRows(); i++) {
 						for (int j = 0; i < sec.getCols(); i++) {
 							w += sec.get(i, j) * fir.get(i, 0);
@@ -162,7 +162,7 @@ public class matrizen {
 					// 1te = waagrechter Vektor, 2te = senkrechter Vektor
 
 					Matrix v = new Matrix(1, 1);
-					int w = 0;
+					float w = 0;
 
 					for (int i = 0; i < fir.getCols(); i++) {
 
@@ -189,7 +189,7 @@ public class matrizen {
 					// 1te = waagrechter Vektor, 2te = Matrix
 
 					Matrix v = new Matrix(1, sec.getCols());
-					int w = 0;
+					float w = 0;
 
 					for (int a = 0; a < sec.getCols(); a++) {
 
@@ -214,7 +214,7 @@ public class matrizen {
 					// 1te = Matrix, 2te = senkrechter Vektor
 
 					Matrix v = new Matrix(fir.getRows(), 1);
-					int w = 0;
+					float w = 0;
 					for (int i = 0; i < fir.getRows(); i++) {
 
 						for (int j = 0; j < fir.getCols(); j++) {
@@ -232,7 +232,7 @@ public class matrizen {
 					// 1te = Matrix, 2te = waagrechter Vektor
 
 					Matrix v = new Matrix(1, fir.getCols());
-					int w = 0;
+					float w = 0;
 
 					for (int a = 0; a < fir.getCols(); a++) {
 
@@ -253,7 +253,7 @@ public class matrizen {
 					if (fir.getCols() == sec.getRows()) {
 						// 1te Matrix ist "waagrecht" 2te "senkrecht"
 						Matrix v = new Matrix(fir.getRows(), sec.getCols());
-						int w = 0;
+						float w = 0;
 						for (int i = 0; i < fir.getRows(); i++) {
 
 							for (int a = 0; a < sec.getCols(); a++) {
@@ -273,7 +273,7 @@ public class matrizen {
 					if (fir.getRows() == sec.getCols()) {
 						// 1te Matrix ist "senkrecht" 2te "waagrecht"
 						Matrix v = new Matrix(sec.getRows(), fir.getCols());
-						int w = 0;
+						float w = 0;
 						for (int i = 0; i < sec.getRows(); i++) {
 
 							for (int a = 0; a < fir.getCols(); a++) {
